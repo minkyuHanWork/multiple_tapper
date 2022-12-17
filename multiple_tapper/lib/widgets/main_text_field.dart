@@ -5,6 +5,7 @@ import 'package:multiple_tapper/utils/utils.dart';
 class MainTextField extends StatelessWidget {
   final String? hintText;
   final String? labelText;
+  final String? helperText;
   final Function(String?)? onSaved;
   final Function(String)? onChanged;
   final String? Function(String?)? validator;
@@ -20,6 +21,7 @@ class MainTextField extends StatelessWidget {
   final AutovalidateMode? autovalidateMode;
   final TextAlign? textAlign;
   final List<TextInputFormatter>? inputFormatters;
+  final bool autofocus;
 
   const MainTextField({
     Key? key,
@@ -27,6 +29,7 @@ class MainTextField extends StatelessWidget {
     this.onChanged,
     this.hintText = '',
     this.labelText = '',
+    this.helperText = '',
     this.autovalidateMode,
     this.validator,
     this.inputType,
@@ -38,6 +41,7 @@ class MainTextField extends StatelessWidget {
     this.maxLines = 5,
     this.minLines = 1,
     this.focusNode,
+    this.autofocus = false,
     this.textAlign = TextAlign.start,
     this.inputFormatters,
   }) : super(key: key);
@@ -53,6 +57,7 @@ class MainTextField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: labelText,
         hintText: hintText,
+        helperText: helperText,
         hintStyle:
             TextStyle(color: Colors.grey.shade300, fontSize: 14, height: 1),
         border: const OutlineInputBorder(
@@ -70,6 +75,7 @@ class MainTextField extends StatelessWidget {
       maxLines: maxLines,
       minLines: minLines,
       focusNode: focusNode,
+      autofocus: autofocus,
       inputFormatters: inputFormatters ?? [allAllow],
     );
   }
